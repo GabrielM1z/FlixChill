@@ -51,3 +51,11 @@ Start the application :
 
 ```bash
 ng serve
+
+## Installation API
+
+1. Dl the requierement.txt with pip (pip install <lib>)
+2. Go in the folder API/src
+3. up the server for API, cmd : uvicorn main:app --reload
+4. Know we can request the API
+
