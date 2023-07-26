@@ -46,3 +46,8 @@ After installing the dependencies, you can start the development server:
 
 ```bash
 npm start
+
+Start the application :
+
+```bash
+ng serve
