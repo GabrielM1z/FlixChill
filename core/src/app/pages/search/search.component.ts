@@ -10,6 +10,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class SearchComponent implements OnInit {
   isBlackTheme: boolean = true;
+  
   constructor (private moviesService: MoviesService, private title: Title, private meta: Meta) {}
 
   ngOnInit (): void {
