@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware  # Step 1: Import the CORS middleware
-
+from MicroService.dark_mode import get_theme
 app = FastAPI()
 
 # Step 2: Add the CORS middleware to allow requests from all origins
@@ -30,3 +30,8 @@ def read_recommendation_weather():
 @app.get("/recommendation/weather/{thematic_str}")
 def read_recommendation_thematic(thematic_str: str):
     return {"thematic": thematic_str}
+
+@app.route('/theme/{city}')
+async def read_theme_city(city: str):
+    r = get_theme(city)
+    return {"backgroundTheme": r}
