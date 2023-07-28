@@ -1,4 +1,8 @@
 <div *ngIf="recommendation">
   <h1>Recommendation:</h1>
-  <p>{{ recommendation.message }}</p>
+  <p>{{ recommendation.thematic }}</p>
 </div>
+
+<app-search></app-search>
+
+<router-outlet></router-outlet>
