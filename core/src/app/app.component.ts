@@ -15,6 +15,7 @@ export class AppComponent {
     this.apiService.getRecommendationByThematic('some_theme').subscribe(
       (response) => {
         this.recommendation = response;
+        console.log(response);
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
