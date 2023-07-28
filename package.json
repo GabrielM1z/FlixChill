@@ -1,0 +1,19 @@
+{
+  "name": "flixchill",
+  "version": "1.0.0",
+  "description": "FlixChill is an Angular-based web application that aims to provide a similar experience to Netflix, allowing users to discover and watch their favorite movies and TV shows.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielM1z/FlixChill.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielM1z/FlixChill/issues"
+  },
+  "homepage": "https://github.com/GabrielM1z/FlixChill#readme"
+}
