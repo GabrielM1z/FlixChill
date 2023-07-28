@@ -30,7 +30,6 @@ The following technologies are used in this project:
 - Angular
 - API (replace with the API you are using)
 - HTML, CSS, JavaScript (TypeScript)
-- Bootstrap (or any other CSS framework you are using)
 
 ## Installation
 
