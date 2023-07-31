@@ -43,5 +43,3 @@ def selectGoodFilm(allFilm):
 def searchInfosById(id):
     movie = tmdb.Movies(id)
     return movie.info()
-
-print(searchMoviesByThematic(28))
