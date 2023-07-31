@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from MicroService.weather_service import get_thematic_by_weather
 from MicroService.search import searchMoviesByThematic
+from MicroService.search import getGenre
 import urllib.request
 import json
 from fastapi.middleware.cors import CORSMiddleware
@@ -61,3 +62,9 @@ def read_theme():
 def read_search_thematic(thematic_id: int):
     print(searchMoviesByThematic(thematic_id))
     return searchMoviesByThematic(thematic_id)
+
+
+# route for get all genre with his id.
+@app.get("/genre")
+def read_genre():
+    return getGenre()
