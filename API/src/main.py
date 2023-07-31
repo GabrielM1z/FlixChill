@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from MicroService.weather_service import get_thematic_by_weather
 from MicroService.search import searchMoviesByThematic
-from MicroService.search import getGenre
+from MicroService.genre import getGenre
 import urllib.request
 import json
 from fastapi.middleware.cors import CORSMiddleware
