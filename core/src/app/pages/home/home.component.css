@@ -1,0 +1,119 @@
+
+/* Style for the container */
+.contain {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Style for movie rows */
+.row {
+  margin-bottom: 30px;
+}
+
+/* Style for section titles */
+h3 {
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.black-theme {
+  background-color: black; /* Set the background color to black */
+  color: white; /* Set the text color to white (optional, for better readability) */
+}
+/* Style for the movie posters */
+.rowposter {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.rowposter::-webkit-scrollbar {
+  display: none;
+}
+
+.rowposter img {
+  width: 150px;
+  height: 225px;
+  margin-right: 10px;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.rowposter img:last-child {
+  margin-right: 0;
+}
+
+.rowposter img:hover {
+  transform: scale(1.1);
+}
+
+/* Style for section separators */
+.row + .row {
+  border-top: 1px solid #fff;
+  padding-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  h3 {
+    font-size: 18px;
+  }
+
+  .rowposter img {
+    width: 120px;
+    height: 180px;
+  }
+}
+
+/*----------------------*/
+
+.rowposter_biggest {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.rowposter_biggest::-webkit-scrollbar {
+  display: none;
+}
+
+.rowposter_biggest img {
+  width: 350px;
+  height: 525px;
+  margin-right: 10px;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.rowposter_biggest img:last-child {
+  margin-right: 0;
+}
+
+.rowposter_biggest img:hover {
+  transform: scale(1.1);
+}
+
+/* Style for section separators */
+.row_biggest + .row_biggest {
+  border-top: 1px solid #fff;
+  padding-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  h3 {
+    font-size: 18px;
+  }
+
+  .rowposter_biggest img {
+    width: 120px;
+    height: 180px;
+  }
+}
