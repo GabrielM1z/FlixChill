@@ -3,7 +3,9 @@ from MicroService.weather_service import get_thematic_by_weather
 from MicroService.search import searchMoviesByThematic
 import urllib.request
 import json
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from MicroService.dark_mode import get_theme
 
 
 app = FastAPI()
@@ -46,14 +48,10 @@ def read_recommendation_thematic(thematic_str: str):
 
 
 # route for the theme (night or day / black or white)
-@app.get("/theme")
-def read_theme():
-    theme = "dark"
-    return {"theme": theme}
-
-
-
-### private call
+@app.get('/background/{city}')
+def read_background_city(city: str):
+    result = get_theme(city)
+    return {"backgroundTheme": result}
 
 
 # route for search list film by thematic

@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+
+  isBlackTheme: boolean  = false;
+
   private baseUrl = 'http://127.0.0.1:8000'; // Replace with the correct backend URL
 
   constructor(private http: HttpClient) { }
@@ -15,6 +18,7 @@ export class ApiService {
   }
   */
   getBackgroundTheme(city: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/theme/${city}`);
+    return this.http.get<any>(`${this.baseUrl}/background/${city}`);
   }
+  
 }

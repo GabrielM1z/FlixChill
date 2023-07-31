@@ -2,7 +2,7 @@
 
 import requests
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware  # Step 1: Import the CORS middleware
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
@@ -35,8 +35,7 @@ def get_theme(city):
     try:
         weather_data = get_weather_data(city)
         theme = get_theme_by_weather(weather_data)
-        response = {'theme': theme}
-        return response, 200
+        return theme, 200
     except Exception as e:
         response = {'error': 'Erreur lors de la récupération des données météorologiques.'}
-        return response, 500
+        return response, 501
