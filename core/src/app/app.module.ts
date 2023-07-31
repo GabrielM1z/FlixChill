@@ -1,18 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { SearchComponent } from './pages/search/search.component';
+import { MoviesService } from './services/movies.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MoviesSliderComponent } from './pages/movies-slider/movies-slider.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    MovieDetailsComponent,
+    SearchComponent,
+    MoviesSliderComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
