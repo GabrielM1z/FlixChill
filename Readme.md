@@ -58,4 +58,4 @@ ng serve
 3. up the server for API, cmd : uvicorn main:app --reload
 4. Know we can request the API
 
-#test
+#testZ2
