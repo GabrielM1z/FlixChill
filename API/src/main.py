@@ -1,5 +1,3 @@
-from typing import Union
-
 from fastapi import FastAPI
 from MicroService.weather_service import get_thematic_by_weather
 from MicroService.search import searchMoviesByThematic
@@ -8,6 +6,13 @@ import json
 
 app = FastAPI()
 
+# Step 2: Add the CORS middleware to allow requests from all origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 ### public call
 
@@ -16,12 +21,10 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
-
 # route for recommendation by thematic
 @app.get("/recommendation/thematic/{thematic_str}")
 def read_recommendation_thematic(thematic_str: str):
     return {"thematic": thematic_str}
-
 
 # route for recommendation by weather
 @app.get("/recommendation/weather/")
@@ -33,7 +36,6 @@ def read_recommendation_weather():
     json_data = json.load(result_bytes)
 
     return result_bytes
-
 
 # route for recommendation by list
 @app.get("/recommendation/list/{thematic_str}")
