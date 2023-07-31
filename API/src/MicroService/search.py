@@ -5,10 +5,6 @@ import random
 import tmdbsimple as tmdb
 tmdb.API_KEY = 'd2385f7323f46a904df66f949d71cc39'
 
-#def searchInfosByTitle(title):
-#    search = tmdb.Search()
-#    return search.movie(query=title, language = "fr")
-
 def getGenre():
     genre = tmdb.Genres()
     dictGenre = genre.movie_list(language="fr")['genres']
@@ -41,8 +37,4 @@ def selectGoodFilm(allFilm):
             allFilm.remove(it)
     return allFilm
 
-def searchInfosById(id):
-    movie = tmdb.Movies(id)
-    return movie.info()
-
-print(getGenre())
+print(searchMoviesByThematic(28))
