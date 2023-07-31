@@ -1,7 +1,8 @@
 from fastapi import FastAPI
-from MicroService.weather_service import get_thematic_by_weather
+from MicroService.weather_service import get_movies_by_weather
 from MicroService.search import searchMoviesByThematic
 from MicroService.genre import getGenreName
+from MicroService.genre import getGenreWithId
 import urllib.request
 import json
 from fastapi import FastAPI
@@ -26,21 +27,10 @@ app.add_middleware(
 def read_root():
     return {"Hello": "World"}
 
-# route for recommendation by thematic
-@app.get("/recommendation/thematic/{thematic_str}")
-def read_recommendation_thematic(thematic_str: str):
-    return {"thematic": thematic_str}
-
 # route for recommendation by weather
 @app.get("/recommendation/weather/")
 def read_recommendation_weather():
-
-    result_bytes = urllib.request.urlopen(
-        f"http://127.0.0.1:8000/search/theme/{int(get_thematic_by_weather()['id'])}"
-    )
-    json_data = json.load(result_bytes)
-
-    return json_data
+    return get_movies_by_weather()
 
 # route for recommendation by list
 @app.get("/recommendation/list/{thematic_str}")
@@ -54,15 +44,19 @@ def read_background_city(city: str):
     result = get_theme(city)
     return {"backgroundTheme": result}
 
-
-# route for search list film by thematic
-@app.get("/search/theme/{thematic_id}")
-def read_search_thematic(thematic_id: int):
-    print(searchMoviesByThematic(thematic_id))
-    return searchMoviesByThematic(thematic_id)
-
-
 # route for get all genre with his id.
 @app.get("/genre")
 def read_genre():
     return getGenreName()
+
+# route for search list film by thematic
+@app.get("/private/search/theme/{thematic_id}")
+def read_search_thematic(thematic_id: int):
+    print(searchMoviesByThematic(thematic_id))
+    return searchMoviesByThematic(thematic_id)
+
+# route for get all genre with his id.
+@app.get("/private/genre")
+def read_genre():
+    return getGenreWithId()
+

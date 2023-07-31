@@ -97,13 +97,15 @@ def get_conditions():
     return condition
 
 
-def get_thematic_by_weather():
+def get_movies_by_weather():
 
     condition = get_conditions()
     cat = corresp_weather_cat[condition]
-
-
-    return cat
+    result_bytes = urllib.request.urlopen(
+        f"http://127.0.0.1:8000/private/search/theme/{int(cat)}"
+    )
+    json_data = json.load(result_bytes)
+    return json_data
 
     
 
