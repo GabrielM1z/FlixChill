@@ -32,7 +32,7 @@ def read_recommendation_weather():
     )
     json_data = json.load(result_bytes)
 
-    return result_bytes
+    return json_data
 
 
 # route for recommendation by list
