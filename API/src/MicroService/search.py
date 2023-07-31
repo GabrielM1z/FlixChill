@@ -11,7 +11,8 @@ tmdb.API_KEY = 'd2385f7323f46a904df66f949d71cc39'
 
 def getGenre():
     genre = tmdb.Genres()
-    return genre.movie_list()
+    dictGenre = genre.movie_list(language="fr")['genres']
+    return json.dumps(dictGenre)
 
 def searchMoviesByThematic(idGenre):
     genre = tmdb.Genres(idGenre)
@@ -43,3 +44,5 @@ def selectGoodFilm(allFilm):
 def searchInfosById(id):
     movie = tmdb.Movies(id)
     return movie.info()
+
+print(getGenre())
