@@ -55,5 +55,5 @@ def read_theme():
 # route for search list film by thematic
 @app.get("/search/theme/{thematic_id}")
 def read_search_thematic(thematic_id: int):
-    print(searchMoviesByThematic(id))
-    return searchMoviesByThematic(id)
+    print(searchMoviesByThematic(thematic_id))
+    return searchMoviesByThematic(thematic_id)
