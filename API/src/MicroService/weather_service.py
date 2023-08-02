@@ -100,7 +100,7 @@ def getConditions():
 def getMoviesByWeather():
 
     condition = getConditions()
-    cat = corresp_weather_cat[condition]
+    cat = corresp_weather_cat[condition]['id']
     result_bytes = urllib.request.urlopen(
         f"http://127.0.0.1:8000/private/search/theme/{int(cat)}"
     )
