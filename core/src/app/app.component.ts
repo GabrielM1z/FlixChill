@@ -17,6 +17,9 @@ export class AppComponent {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
+    console.log('ngOnInit called');
+    this.getListLst(); // Appel de la fonction pour récupérer la liste et l'afficher
+
     /*
     this.apiService.getRecommendationByThematic('some_theme').subscribe(
       (response) => {
@@ -61,6 +64,24 @@ export class AppComponent {
     this.apiService.getGenre().subscribe(
       (response) => {
         console.log(response)
+      },
+      (error) => {
+        console.error('Error fetching recommendation:', error);
+      }
+    );
+  }
+
+
+
+  getListLst() {
+    this.apiService.getWeather().subscribe(
+      (response) => {
+        this.lst = [];
+        const obj = (response);
+        for (let i = 0; i < obj.length; i++) {
+          this.lst.push(obj[i].poster_path)
+        }
+        console.log(this.lst);
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
