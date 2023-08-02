@@ -1,13 +1,18 @@
 import json
 import urllib.request
+import urllib.parse
 
 def getMoviesByThematic(thematic):
     genreDict = getGenreDict()
-    id = genreDict[f"{thematic}"]
-    print("id")
+    id = urllib.parse.quote(str(genreDict[thematic]))
+    print(f"http://127.0.0.1:8000/private/search/theme/{id}")
+    result_bytes = urllib.request.urlopen(
+        f"http://127.0.0.1:8000/private/search/theme/{id}"
+    )
+    return json.load(result_bytes)
 
 def getGenreDict():
     result_bytes = urllib.request.urlopen(
         f"http://127.0.0.1:8000/private/genre/"
     )
-    return result_bytes
+    return json.load(result_bytes)
