@@ -30,11 +30,6 @@ def read_root():
 def read_recommendation_weather():
     return getMoviesByWeather()
 
-# route for recommendation by list
-@app.get("/recommendation/list/{thematic_str}")
-def read_recommendation_thematic(thematic_str: str):
-    return getMoviesByThematic(thematic_str)
-
 
 # route for the theme (night or day / black or white)
 @app.get('/background/{city}')

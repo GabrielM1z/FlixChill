@@ -11,6 +11,7 @@ export class AppComponent {
   
   recommendation: any;
   backgroundTheme: any;
+  lst : any;
 
   constructor(private apiService: ApiService) {}
 
@@ -38,6 +39,20 @@ export class AppComponent {
       (error) => {
         console.error('Error fetching recommendation:', error);
       }
-    );    
+    );
+
+    this.apiService.getWeather().subscribe(
+      (response) => {
+        this.lst = [];
+        const obj = JSON.parse(response);
+        for(let i = 0; i < obj.length; i++){
+          this.lst.push(obj[i].poster_path)
+        }
+        console.log(this.lst)
+      },
+      (error) => {
+        console.error('Error fetching recommendation:', error);
+      }
+    );
   }
 }
