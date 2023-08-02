@@ -1,15 +1,15 @@
 FROM python:3.9.16-bullseye
 
 # UPDATE
-RUN sudo pip install --upgrade pip
-RUN sudo apt-get update -y
-RUN sudo apt-get upgrade -y
+RUN pip install --upgrade pip
+RUN apt-get update -y
+RUN apt-get upgrade -y
 
 
 # requirements
 WORKDIR /
 COPY requirements.txt /requirements.txt
-RUN sudo pip3 install -r requirements.txt
+RUN  pip3 install -r requirements.txt
 
 # COPY app
 COPY src /app
