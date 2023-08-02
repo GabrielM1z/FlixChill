@@ -110,4 +110,4 @@ def get_movies_by_weather():
     
 
 if __name__ == "__main__":
-    pprint(get_thematic_by_weather())
+    pprint(get_movies_by_weather())
