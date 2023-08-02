@@ -17,7 +17,15 @@
 <app-search></app-search>
 
 <router-outlet></router-outlet>
+ghfghfgs
 
-
+<div *ngIf="lst">
+  <h2>Weather Posters:</h2>
+  <div class="poster-container">
+    <div class="poster" *ngFor="let posterPath of lst">
+      <img [src]=" +posterPath" alt="Weather Poster">
+    </div>
+  </div>
+</div>
 
 <!-- https://image.tmdb.org/t/p/w185 -->  
