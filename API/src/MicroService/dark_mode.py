@@ -2,7 +2,7 @@
 
 import requests
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware  # Step 1: Import the CORS middleware
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
@@ -15,14 +15,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-def get_weather_data(city):
+def getWeatherData(city):
     api_key = '1cad6b2d88d910d039245e615e4789fb'
     base_url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
     response = requests.get(base_url)
     data = response.json()
     return data
 
-def get_theme_by_weather(weather_data):
+def getThemeByWeather(weather_data):
     sunrise = weather_data['sys']['sunrise']
     sunset = weather_data['sys']['sunset']
     current_time = weather_data['dt']
@@ -31,12 +31,11 @@ def get_theme_by_weather(weather_data):
     else:
         return 'dark_mode'
 
-def get_theme(city):
+def getTheme(city):
     try:
-        weather_data = get_weather_data(city)
-        theme = get_theme_by_weather(weather_data)
-        response = {'theme': theme}
-        return response, 200
+        weather_data = getWeatherData(city)
+        theme = getThemeByWeather(weather_data)
+        return theme, 200
     except Exception as e:
         response = {'error': 'Erreur lors de la récupération des données météorologiques.'}
-        return response, 500
+        return response, 501

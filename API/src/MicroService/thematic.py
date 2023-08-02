@@ -1,0 +1,2 @@
+def getMoviesByThematic(thematic):
+    print("")

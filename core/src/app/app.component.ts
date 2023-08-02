@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from './services/api.service';
+import { HomeComponent } from './pages/home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
+  
   recommendation: any;
   backgroundTheme: any;
 
@@ -27,8 +28,12 @@ export class AppComponent {
       */
     this.apiService.getBackgroundTheme('Prague').subscribe(
       (response) => {
-        this.backgroundTheme = response;
-        console.log(response);
+        this.backgroundTheme = response.backgroundTheme[0];
+        if(this.backgroundTheme == "dark_mode"){
+          this.apiService.isBlackTheme = true;
+        }else{
+          this.apiService.isBlackTheme = false;
+        }
       },
       (error) => {
         console.error('Error fetching recommendation:', error);

@@ -3,28 +3,28 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/interfaces/movies';
 import { MoviesService } from 'src/app/services/movies.service';
-
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  isBlackTheme: boolean = false;
 
-  trendingMoviesResults?: Movie[] = [];
-  discoverMoviesResults?: Movie[] = [];
-  actionMovieResults?: Movie[] = [];
-  adventureMovieResults?: Movie[] = [];
-  animationMovieResults?: Movie[] = [];
-  comedyMovieResults?: Movie[] = [];
-  documentaryMovieResults?: Movie[] = [];
-  sciencefictionMovieResults?: Movie[] = [];
-  thrillerMovieResults?: Movie[] = [];
+  // trendingMoviesResults?: Movie[] = [];
+  // discoverMoviesResults?: Movie[] = [];
+  // actionMovieResults?: Movie[] = [];
+  // adventureMovieResults?: Movie[] = [];
+  // animationMovieResults?: Movie[] = [];
+  // comedyMovieResults?: Movie[] = [];
+  // documentaryMovieResults?: Movie[] = [];
+  // sciencefictionMovieResults?: Movie[] = [];
+  // thrillerMovieResults?: Movie[] = [];
 
-  constructor (private moviesService: MoviesService, private title: Title, private meta: Meta, private router: Router) { }
+  constructor(private moviesService: MoviesService, private title: Title, private meta: Meta, private router: Router, public apiService: ApiService) { }
 
-  ngOnInit (): void {
+  ngOnInit(): void {
+    /*
     this.trendingMovies();
     this.discoverMovies();
     this.actionMovies();
@@ -34,8 +34,10 @@ export class HomeComponent implements OnInit {
     this.documentaryMovies();
     this.sciencefictionMovies();
     this.thrillerMovies();
+    */
   }
 
+  /*
   trendingMovies () {
     this.moviesService.getTrendingMovies().subscribe((result) => {
       console.log(result, 'trendingresult#');
@@ -92,7 +94,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  toggleTheme() {
-    this.isBlackTheme = !this.isBlackTheme;
-  }
+
+*/
+
+toggleTheme() {
+  this.apiService.isBlackTheme = !this.apiService.isBlackTheme;
+}
+
+
 }

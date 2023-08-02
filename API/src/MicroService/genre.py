@@ -15,6 +15,3 @@ def getGenreWithId():
     genre = tmdb.Genres()
     dictGenre = genre.movie_list(language="fr")['genres']
     return json.dumps(dictGenre)
-
-print(getGenreWithId())
-print(getGenreName())
