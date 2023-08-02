@@ -31,11 +31,16 @@ def read_root():
 def read_recommendation_weather():
     return getMoviesByWeather()
 
+# route for recommendation by list
+@app.get("/recommendation/list/{thematic_str}")
+def read_recommendation_thematic(thematic_str: str):
+    thematic_str = urllib.parse.unquote(str(thematic_str))
+    return getMoviesByThematic(thematic_str)
 
 # route for the theme (night or day / black or white)
 @app.get('/background/{city}')
 def read_background_city(city: str):
-    city = urllib.parse.unquote(city)
+    city = urllib.parse.unquote(str(city))
     result = getTheme(city)
     return {"backgroundTheme": result}
 
@@ -49,6 +54,7 @@ def read_genre():
 # route for search list film by thematic
 @app.get("/private/search/theme/{thematic_id}")
 def read_search_thematic(thematic_id: int):
+    thematic_id = urllib.parse.unquote(str(thematic_id))
     return searchMoviesByThematic(thematic_id)
 
 # route for get all genre with his id.
