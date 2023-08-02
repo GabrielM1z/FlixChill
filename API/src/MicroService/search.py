@@ -21,9 +21,12 @@ def searchMoviesByThematic(idGenre):
 def filmToPrint(allFilmSelected):
     allFilmRandom = list()
     for i in range(0,9):
-        filmChosen = random.choice(allFilmSelected)
-        allFilmSelected.remove(filmChosen)
-        allFilmRandom.append(filmChosen)
+        try:
+            filmChosen = random.choice(allFilmSelected)
+            allFilmSelected.remove(filmChosen)
+            allFilmRandom.append(filmChosen)
+        except:
+            continue
     return allFilmRandom
 
 def selectGoodFilm(allFilm):

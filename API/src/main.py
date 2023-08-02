@@ -1,13 +1,14 @@
 from fastapi import FastAPI
-from MicroService.weather_service import get_movies_by_weather
+from MicroService.weather_service import getMoviesByWeather
 from MicroService.search import searchMoviesByThematic
 from MicroService.genre import getGenreName
 from MicroService.genre import getGenreWithId
+from MicroService.thematic import getMoviesByThematic
+from MicroService.dark_mode import getTheme
 import urllib.request
 import json
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from MicroService.dark_mode import get_theme
 
 
 app = FastAPI()
@@ -30,18 +31,18 @@ def read_root():
 # route for recommendation by weather
 @app.get("/recommendation/weather/")
 def read_recommendation_weather():
-    return get_movies_by_weather()
+    return getMoviesByWeather()
 
 # route for recommendation by list
 @app.get("/recommendation/list/{thematic_str}")
 def read_recommendation_thematic(thematic_str: str):
-    return {"thematic": thematic_str}
+    return getMoviesByThematic(thematic_str)
 
 
 # route for the theme (night or day / black or white)
 @app.get('/background/{city}')
 def read_background_city(city: str):
-    result = get_theme(city)
+    result = getTheme(city)
     return {"backgroundTheme": result}
 
 # route for get all genre with his id.
@@ -52,7 +53,6 @@ def read_genre():
 # route for search list film by thematic
 @app.get("/private/search/theme/{thematic_id}")
 def read_search_thematic(thematic_id: int):
-    print(searchMoviesByThematic(thematic_id))
     return searchMoviesByThematic(thematic_id)
 
 # route for get all genre with his id.

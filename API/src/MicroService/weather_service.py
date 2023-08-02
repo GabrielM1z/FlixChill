@@ -54,7 +54,7 @@ corresp_weather_cat = {
 
 
 # get the weather of today (all the info)
-def get_weather():
+def getWeather():
 
     result_bytes = urllib.request.urlopen(
         "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Prague/today?unitGroup=us&include=hours&key=3PFZV37BAS4CWECAB233P3URB&contentType=json"
@@ -65,14 +65,14 @@ def get_weather():
 
 
 # give the weather of the current hour (all the info)
-def get_weather_by_hour():
+def getWeatherByHour():
 
     # we juste take the hour of the current date
     hour = datetime.now().hour
     hour_str = str(hour)+":00:00"
 
     # we take the weather of the hour
-    json_weather = get_weather()
+    json_weather = getWeather()
 
     liste_heure = json_weather["days"][0]["hours"]
 
@@ -86,9 +86,9 @@ def get_weather_by_hour():
 
 
 # give the weather condition of the current hour (just)
-def get_conditions():
+def getConditions():
     
-    weather = get_weather_by_hour()
+    weather = getWeatherByHour()
     if weather == "erreur":
         return "erreur"
 
@@ -97,9 +97,9 @@ def get_conditions():
     return condition
 
 
-def get_movies_by_weather():
+def getMoviesByWeather():
 
-    condition = get_conditions()
+    condition = getConditions()
     cat = corresp_weather_cat[condition]
     result_bytes = urllib.request.urlopen(
         f"http://127.0.0.1:8000/private/search/theme/{int(cat)}"
@@ -110,4 +110,4 @@ def get_movies_by_weather():
     
 
 if __name__ == "__main__":
-    pprint(get_movies_by_weather())
+    pprint(getMoviesByWeather())
