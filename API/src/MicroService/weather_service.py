@@ -107,7 +107,7 @@ def getMoviesByWeather():
         cat = 80
     id = urllib.parse.quote(str(cat))
     result_bytes = urllib.request.urlopen(
-        f"http://127.0.0.1:8000/private/search/theme/{int(cat)}"
+        f"http://127.0.0.1:8000/private/search/theme/{cat}"
     )
     json_data = json.load(result_bytes)
     return json_data
