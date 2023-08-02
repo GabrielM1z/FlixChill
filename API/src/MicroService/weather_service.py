@@ -1,5 +1,6 @@
 import json
 import urllib.request
+import urllib.parse
 from datetime import datetime
 from time import strftime
 from pprint import pprint
@@ -104,6 +105,7 @@ def getMoviesByWeather():
         cat = corresp_weather_cat[condition]['id']
     else:
         cat = 80
+    id = urllib.parse.quote(str(cat))
     result_bytes = urllib.request.urlopen(
         f"http://127.0.0.1:8000/private/search/theme/{int(cat)}"
     )
