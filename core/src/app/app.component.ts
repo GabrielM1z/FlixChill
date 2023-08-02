@@ -12,6 +12,7 @@ export class AppComponent {
   recommendation: any;
   backgroundTheme: any;
   lst : any;
+  a: any;
 
   constructor(private apiService: ApiService) {}
 
@@ -27,7 +28,8 @@ export class AppComponent {
       }
     );
       */
-    this.apiService.getBackgroundTheme('Prague').subscribe(
+
+    this.apiService.getBackgroundTheme(encodeURIComponent('Mazatlán')).subscribe(
       (response) => {
         this.backgroundTheme = response.backgroundTheme[0];
         if(this.backgroundTheme == "dark_mode"){
@@ -35,6 +37,7 @@ export class AppComponent {
         }else{
           this.apiService.isBlackTheme = false;
         }
+        console.log(this.backgroundTheme)
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
@@ -44,11 +47,20 @@ export class AppComponent {
     this.apiService.getWeather().subscribe(
       (response) => {
         this.lst = [];
-        const obj = JSON.parse(response);
-        for(let i = 0; i < obj.length; i++){
-          this.lst.push(obj[i].poster_path)
+        console.log(response)
+        for(let i = 0; i < response.length; i++){
+          this.lst.push(response[i].poster_path)
         }
         console.log(this.lst)
+      },
+      (error) => {
+        console.error('Error fetching recommendation:', error);
+      }
+    );
+
+    this.apiService.getGenre().subscribe(
+      (response) => {
+        console.log(response)
       },
       (error) => {
         console.error('Error fetching recommendation:', error);

@@ -24,5 +24,9 @@ export class ApiService {
   getWeather(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/recommendation/weather/`);
   }
+
+  getGenre(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/genre/`);
+  }
   
 }
