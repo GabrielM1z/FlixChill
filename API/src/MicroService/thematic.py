@@ -5,7 +5,6 @@ import urllib.parse
 def getMoviesByThematic(thematic):
     genreDict = getGenreDict()
     id = urllib.parse.quote(str(genreDict[thematic]))
-    print(f"http://127.0.0.1:8000/private/search/theme/{id}")
     result_bytes = urllib.request.urlopen(
         f"http://127.0.0.1:8000/private/search/theme/{id}"
     )
