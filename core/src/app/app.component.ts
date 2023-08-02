@@ -11,26 +11,15 @@ export class AppComponent {
   
   recommendation: any;
   backgroundTheme: any;
-  lst : any;
+  lstWeather : any;
+  basePath : string = "https://image.tmdb.org/t/p/w185";
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     console.log('ngOnInit called');
-    this.getListLst(); // Appel de la fonction pour récupérer la liste et l'afficher
 
-    /*
-    this.apiService.getRecommendationByThematic('some_theme').subscribe(
-      (response) => {
-        this.recommendation = response;
-        console.log(response);
-      },
-      (error) => {
-        console.error('Error fetching recommendation:', error);
-      }
-    );
-      */
-    this.apiService.getBackgroundTheme('Prague').subscribe(
+    this.apiService.getBackgroundTheme(encodeURIComponent('Mazatlán')).subscribe(
       (response) => {
         this.backgroundTheme = response.backgroundTheme[0];
         if(this.backgroundTheme == "dark_mode"){
@@ -38,6 +27,7 @@ export class AppComponent {
         }else{
           this.apiService.isBlackTheme = false;
         }
+        console.log(this.backgroundTheme)
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
@@ -46,30 +36,21 @@ export class AppComponent {
 
     this.apiService.getWeather().subscribe(
       (response) => {
-        this.lst = [];
-        const obj = JSON.parse(response);
-        for(let i = 0; i < obj.length; i++){
-          this.lst.push(obj[i].poster_path)
+        this.lstWeather = [];
+        console.log(response)
+        for(let i = 0; i < response.length; i++){
+          this.lstWeather.push(response[i].poster_path)
         }
-        console.log(this.lst)
+        console.log(this.lstWeather)
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
       }
     );
-  }
 
-
-
-  getListLst() {
-    this.apiService.getWeather().subscribe(
+    this.apiService.getGenre().subscribe(
       (response) => {
-        this.lst = [];
-        const obj = (response);
-        for (let i = 0; i < obj.length; i++) {
-          this.lst.push(obj[i].poster_path)
-        }
-        console.log(this.lst);
+        console.log(response)
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
