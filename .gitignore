@@ -1,3 +1,5 @@
 **/__pycache__
 **/temp_backup
 **/.pytest_cache
+**/venv
+/.env

@@ -1,0 +1,10 @@
+.poster-container {
+    display: flex;
+    flex-wrap: nowrap; /* Pour éviter le retour à la ligne */
+    overflow-x: auto; /* Pour permettre le défilement horizontal si nécessaire */
+  }
+  
+  .poster {
+    padding: 10px;
+  }
+  

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+   
+    flixchill_api:
+        build:
+            context: ./API
+        container_name: flixchill_api
+        restart: always
+        ports:
+            - ${API_PORT}:80
+        networks:
+            - flixchill-network
+        volumes:
+            - .env:/.env
+  
+networks:
+    flixchill-network:
+        name: flixchill-network
+        driver: bridge
