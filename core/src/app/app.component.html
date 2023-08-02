@@ -6,14 +6,18 @@
   <p>{{ recommendation.thematic }}</p>
 </div>
 
+<h2>Weather Posters:</h2>
+<div class="poster-container">
+  <div class="poster" *ngFor="let posterPath of lst">
+    <img [src]="posterPath" alt="Weather Poster">
+  </div>
+</div>
+
+
 <app-search></app-search>
 
 <router-outlet></router-outlet>
 
-<div>
-  <img src='https://image.tmdb.org/t/p/w185/2KSNfS9yYDenhRhDHCTM3hSOim2.jpg'>
-  <img src='https://image.tmdb.org/t/p/w185/2KSNfS9yYDenhRhDHCTM3hSOim2.jpg'>
-  <img src='https://image.tmdb.org/t/p/w185/2KSNfS9yYDenhRhDHCTM3hSOim2.jpg'>
-  <img src='https://image.tmdb.org/t/p/w185/2KSNfS9yYDenhRhDHCTM3hSOim2.jpg'>
-</div>
+
+
 <!-- https://image.tmdb.org/t/p/w185 -->  
