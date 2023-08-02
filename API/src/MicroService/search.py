@@ -1,6 +1,5 @@
 # API KEY : d2385f7323f46a904df66f949d71cc39
 
-import json
 import random
 import tmdbsimple as tmdb
 tmdb.API_KEY = 'd2385f7323f46a904df66f949d71cc39'
@@ -16,7 +15,7 @@ def searchMoviesByThematic(idGenre):
         except:
             continue
     allFilmSelected = selectGoodFilm(allFilm)
-    return json.dumps(filmToPrint(allFilmSelected))
+    return filmToPrint(allFilmSelected)
 
 def filmToPrint(allFilmSelected):
     allFilmRandom = list()

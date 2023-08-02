@@ -1,14 +1,11 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from MicroService.weather_service import getMoviesByWeather
 from MicroService.search import searchMoviesByThematic
 from MicroService.genre import getGenreName
 from MicroService.genre import getGenreWithId
 from MicroService.thematic import getMoviesByThematic
 from MicroService.dark_mode import getTheme
-import urllib.request
-import json
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
