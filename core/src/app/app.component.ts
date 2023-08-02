@@ -11,26 +11,13 @@ export class AppComponent {
   
   recommendation: any;
   backgroundTheme: any;
-  lst : any;
-  a: any;
+  lstWeather : any;
+  basePath : string = "https://image.tmdb.org/t/p/w185";
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     console.log('ngOnInit called');
-    this.getListLst(); // Appel de la fonction pour récupérer la liste et l'afficher
-
-    /*
-    this.apiService.getRecommendationByThematic('some_theme').subscribe(
-      (response) => {
-        this.recommendation = response;
-        console.log(response);
-      },
-      (error) => {
-        console.error('Error fetching recommendation:', error);
-      }
-    );
-      */
 
     this.apiService.getBackgroundTheme(encodeURIComponent('Mazatlán')).subscribe(
       (response) => {
@@ -49,12 +36,12 @@ export class AppComponent {
 
     this.apiService.getWeather().subscribe(
       (response) => {
-        this.lst = [];
+        this.lstWeather = [];
         console.log(response)
         for(let i = 0; i < response.length; i++){
-          this.lst.push(response[i].poster_path)
+          this.lstWeather.push(response[i].poster_path)
         }
-        console.log(this.lst)
+        console.log(this.lstWeather)
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
@@ -64,24 +51,6 @@ export class AppComponent {
     this.apiService.getGenre().subscribe(
       (response) => {
         console.log(response)
-      },
-      (error) => {
-        console.error('Error fetching recommendation:', error);
-      }
-    );
-  }
-
-
-
-  getListLst() {
-    this.apiService.getWeather().subscribe(
-      (response) => {
-        this.lst = [];
-        const obj = (response);
-        for (let i = 0; i < obj.length; i++) {
-          this.lst.push(obj[i].poster_path)
-        }
-        console.log(this.lst);
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
