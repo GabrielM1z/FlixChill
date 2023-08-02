@@ -13,6 +13,10 @@
   </div>
 </div>
 
+<div class="poster" *ngFor="let posterPath of lstWeather" (click)="openMovieDetails(posterPath.id)">
+  <img [src]="basePath + posterPath" alt="Weather Poster">
+</div>
+
 
 <!-- weather-posters.component.html -->
 <div *ngFor="let genre of lstGenre; let i = index">

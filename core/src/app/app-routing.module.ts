@@ -17,7 +17,8 @@ const routes: Routes = [  {
   component: MovieDetailsComponent,
 },
 { path: '', pathMatch: 'full', redirectTo: '/home' },
-{ path: '**', pathMatch: 'full', redirectTo: '/home' }
+{ path: '**', pathMatch: 'full', redirectTo: '/home' }, 
+{ path: 'movie/:title', component: MovieDetailsComponent },
 ];
 
 @NgModule({

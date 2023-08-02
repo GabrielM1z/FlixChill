@@ -115,6 +115,8 @@
 import { Component } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { ApiService } from './services/api.service';
+import { HomeComponent } from './pages/home/home.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -130,7 +132,7 @@ export class AppComponent {
   lstMovieGenre: any;
   basePath: string = "https://image.tmdb.org/t/p/w185";
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     console.log('ngOnInit called');
@@ -173,4 +175,12 @@ export class AppComponent {
       }
     );
   }
+
+
+  openMovieDetails(movieId: string) {
+    console.log(movieId);
+    // Navigate to the movie details route
+    this.router.navigate(['/movie', movieId]);
+  }
+  
 }
