@@ -9,9 +9,24 @@
 <h2>Weather Posters:</h2>
 <div class="poster-container">
   <div class="poster" *ngFor="let posterPath of lstWeather">
-    <img [src]="basePath+posterPath" alt="Weather Poster">
+    <img [src]="basePath+posterPath.poster_path" alt="Weather Poster">
   </div>
 </div>
+
+
+<!-- weather-posters.component.html -->
+<div *ngFor="let genre of lstGenre; let i = index">
+  <h2>{{ genre }}</h2>
+  <div class="poster-container">
+    <div class="poster" *ngIf="lstMovieGenre[i]" *ngFor="let posterPath of lstMovieGenre[i]">
+      <img [src]="basePath + posterPath.poster_path" alt="Weather Poster">
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 <app-search></app-search>
