@@ -17,6 +17,7 @@ import { MoviesSliderComponent } from './pages/movies-slider/movies-slider.compo
     MovieDetailsComponent,
     SearchComponent,
     MoviesSliderComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     BrowserModule,
