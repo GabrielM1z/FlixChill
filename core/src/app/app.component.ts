@@ -43,14 +43,12 @@ export class AppComponent {
 
     this.apiService.getWeather().subscribe(
       (response) => {
-        console.log(response)
-        //const titles = response.map((element) => element.title);
+        this.lst = [];
         const obj = JSON.parse(response);
-        console.log(obj)
-        //for(let i = 0; i < obj.length; i++){
-
-        //}
-        this.lst = ["/2KSNfS9yYDenhRhDHCTM3hSOim2.jpg","/jNICaPciTja37SkbSZh4XCsA0Q6.jpg","/2KSNfS9yYDenhRhDHCTM3hSOim2.jpg","/jNICaPciTja37SkbSZh4XCsA0Q6.jpg","/2KSNfS9yYDenhRhDHCTM3hSOim2.jpg","/jNICaPciTja37SkbSZh4XCsA0Q6.jpg"]
+        for(let i = 0; i < obj.length; i++){
+          this.lst.push(obj[i].poster_path)
+        }
+        console.log(this.lst)
       },
       (error) => {
         console.error('Error fetching recommendation:', error);
