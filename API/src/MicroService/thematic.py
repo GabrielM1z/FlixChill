@@ -3,8 +3,8 @@ import urllib.request
 
 def getMoviesByThematic(thematic):
     genreDict = getGenreDict()
-    #print(genreDict)
-    #id = genreDict[f"{thematic}"]
+    id = genreDict[f"{thematic}"]
+    print("id")
 
 def getGenreDict():
     result_bytes = urllib.request.urlopen(
