@@ -20,5 +20,9 @@ export class ApiService {
   getBackgroundTheme(city: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/background/${city}`);
   }
+
+  getWeather(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/recommendation/weather/`);
+  }
   
 }
