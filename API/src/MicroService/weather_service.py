@@ -92,9 +92,7 @@ def getConditions():
     weather = getWeatherByHour()
     if weather == "erreur":
         return "erreur"
-
-    condition = weather["conditions"]
-    
+    condition = weather["conditions"].split(',')[0]
     return condition
 
 
