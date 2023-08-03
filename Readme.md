@@ -1,13 +1,5 @@
 # FlixChill
 
-If you go to app.component.ts and change Prague to Tokyo in this.apiService.getBackgroundTheme(encodeURIComponent('Prague')) :
-
-![image](https://github.com/GabrielM1z/FlixChill/assets/100167018/7a53d6be-9f1f-4a43-b3b3-81c111727014)
-
-And Tokyo to Prague : 
-
-![image](https://github.com/GabrielM1z/FlixChill/assets/100167018/7639525d-98c5-4be6-b32a-0296770c2547)
-
 FlixChill is an Angular-based web application that aims to provide a similar experience to Netflix, allowing users to discover and watch their favorite movies and TV shows.
 
 The meaning of this project is to use and create an API to communicate with the front.
@@ -45,6 +37,15 @@ To run the application locally, follow these steps:
 2. Navigate to the project directory: `cd flixchill`
 3. Install the dependencies: `npm install`
 
+
+If you go to app.component.ts and change Prague to Tokyo in this.apiService.getBackgroundTheme(encodeURIComponent('Prague')) :
+
+![image](https://github.com/GabrielM1z/FlixChill/assets/100167018/7a53d6be-9f1f-4a43-b3b3-81c111727014)
+
+And Tokyo to Prague : 
+
+![image](https://github.com/GabrielM1z/FlixChill/assets/100167018/7639525d-98c5-4be6-b32a-0296770c2547)
+
 ## Usage
 
 After installing the dependencies, you can start the development server:
@@ -63,3 +64,4 @@ ng serve
 2. Go in the folder API/src
 3. up the server for API, cmd : uvicorn main:app --reload
 4. Know we can request the API
+
