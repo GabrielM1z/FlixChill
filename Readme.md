@@ -2,9 +2,10 @@
 
 FlixChill is an Angular-based web application that aims to provide a similar experience to Netflix, allowing users to discover and watch their favorite movies and TV shows.
 
+The meaning of this project is to use and create an API to communicate with the front.
+
 ## Table of Contents
 - [Features](#features)
-- [Demo](#demo)
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Usage](#usage)
