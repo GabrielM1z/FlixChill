@@ -1,10 +1,11 @@
 # FlixChill
 
-If you go to app.component.ts a,d change Prague to Tokyo : 
+If you go to app.component.ts and change Prague to Tokyo in this.apiService.getBackgroundTheme(encodeURIComponent('Prague')) :
+
 ![image](https://github.com/GabrielM1z/FlixChill/assets/100167018/7a53d6be-9f1f-4a43-b3b3-81c111727014)
 
-
 And Tokyo to Prague : 
+
 ![image](https://github.com/GabrielM1z/FlixChill/assets/100167018/7639525d-98c5-4be6-b32a-0296770c2547)
 
 FlixChill is an Angular-based web application that aims to provide a similar experience to Netflix, allowing users to discover and watch their favorite movies and TV shows.
