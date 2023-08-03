@@ -1,5 +1,7 @@
 
 <div [ngStyle]="{'background-color': isBlackTheme ? '#1B1B1B' : '#E3E3E3'}">
+  <nav class="navbar bg-body-tertiary"> <div class="container-fluid"> <form class="d-flex" role="search"> <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> <button class="btn btn-outline-success" type="submit">Search</button> </form> </div> </nav>
+  
   <div *ngIf="bestMovie" id="best-movie" [ngStyle]="{'color': isBlackTheme ? '#EDEDED' : '#4B4A4A'}">
     <div class="movie-poster">
 

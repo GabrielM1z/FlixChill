@@ -97,7 +97,7 @@ img {
   flex-wrap: nowrap; /* Prevent items from wrapping to new lines */
   overflow-x: auto; /* Enable horizontal scrolling */
   margin-bottom: 50px;
-  padding-left: 1530px;
+  padding-left: 52%;
 }
 
 .poster {
@@ -105,4 +105,48 @@ img {
   max-width: 185px;
   transition: transform 0.3s ease-in-out;
   flex: 0 0 auto; /* Let the width be determined by the content */
+}
+
+
+
+.navbar {
+background-color: #232F3E; 
+padding: 10px 20px; 
+}
+
+.navbar .container-fluid {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+/* Styling for the search form inside the navbar */
+.navbar form {
+flex: 1;
+display: flex;
+align-items: center;
+}
+
+.navbar input[type="search"] {
+width: 100%;
+padding: 8px;
+margin-right: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+background-color: #fff; 
+color: #000; 
+}
+
+.navbar .btn {
+padding: 8px 20px;
+border-radius: 5px;
+border: 1px solid #f9a602; 
+background-color: #f9a602; 
+color: #000; 
+font-weight: bold;
+cursor: pointer;
+}
+
+.navbar .btn:hover {
+background-color: #e89f00; /* Button background color on hover */
 }
