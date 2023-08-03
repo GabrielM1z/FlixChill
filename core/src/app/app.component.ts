@@ -95,7 +95,7 @@ export class AppComponent {
 
     
     const requests = [
-      this.apiService.getBackgroundTheme(encodeURIComponent('Prague')),
+      this.apiService.getBackgroundTheme(encodeURIComponent('tokyo')),
       this.apiService.getWeather(),
       this.apiService.getGenre()
     ];
