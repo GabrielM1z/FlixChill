@@ -1,7 +1,8 @@
 
-<div [ngStyle]="{'background-color': isBlackTheme ? '#4B4B4B' : '#E3E3E3'}">
+<div [ngStyle]="{'background-color': isBlackTheme ? '#1B1B1B' : '#E3E3E3'}">
   <div *ngIf="bestMovie" id="best-movie" [style.background]="'url(' + basePath+bestMovie.poster_path + ') no-repeat'">
     <div class="movie-poster">
+
       <img [src]="basePath+bestMovie.poster_path" alt="Best Movie Poster">
     </div>
     <div class="movie-info">
@@ -19,7 +20,7 @@
     <p>{{ recommendation.thematic }}</p>
   </div>
 
-  <h2>Weather Posters:</h2>
+  <h2 [ngStyle]="{'color': isBlackTheme ? '#EDEDED' : '#4B4A4A'}">Weather Posters:</h2>
   <div class="poster-container">
     <div class="poster" *ngFor="let posterPath of lstWeather">
       <img [src]="basePath+posterPath.poster_path" alt="Weather Poster">
@@ -27,7 +28,7 @@
   </div>
 
   <div *ngFor="let genre of lstMovieGenre | keyvalue">
-    <h2>{{ genre.key }} Posters:</h2>
+    <h2 [ngStyle]="{'color': isBlackTheme ? '#EDEDED' : '#4B4A4A'}">{{ genre.key }} Posters:</h2>
     <div class="poster-container">
       <div class="poster" *ngFor="let movie of genre.value">
         <img [src]="basePath+movie.poster_path" alt="{{ genre.key }} Poster">
