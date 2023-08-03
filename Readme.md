@@ -27,13 +27,12 @@ The following technologies are used in this project:
 
 - Angular (HTML, CSS, JavaScript TypeScript)
 - Python
-- 
 
 ## Installation
 
 To run the application locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/flixchill.git`
+1. Clone the repository: `git clone https://github.com/GabrielM1z/flixchill.git`
 2. Navigate to the project directory: `cd flixchill`
 3. Install the dependencies: `npm install`
 
@@ -55,5 +54,3 @@ ng serve
 2. Go in the folder API/src
 3. up the server for API, cmd : uvicorn main:app --reload
 4. Know we can request the API
-
-#testZ2
