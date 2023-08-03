@@ -90,10 +90,7 @@ export class AppComponent {
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
-
-    
-
-    
+        
     const requests = [
       this.apiService.getBackgroundTheme(encodeURIComponent('Prague')),
       this.apiService.getWeather(),

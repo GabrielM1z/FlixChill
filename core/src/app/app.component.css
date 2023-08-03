@@ -33,22 +33,35 @@ img {
 
 #best-movie {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#best-movie .poster {
-  width: 400px;
-  height: 600px;
+#best-movie .movie-poster {
+  flex: 0 0 300px;
+  margin-right: 20px;
+}
+
+#best-movie .movie-poster img {
+  width: 100%;
+  height: auto;
 }
 
 #best-movie .movie-info {
-  width: 60%;
+  flex: 1;
+}
+
+#best-movie .movie-info h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
 #best-movie .movie-info h2 {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
@@ -57,7 +70,7 @@ img {
   margin-bottom: 10px;
 }
 
-#best-movie .movie-info a {
+#best-movie .watch-trailer-btn {
   display: inline-block;
   padding: 10px 20px;
   background-color: #f9a602;
@@ -65,4 +78,30 @@ img {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  #best-movie {
+    flex-direction: column;
+  }
+  
+  #best-movie .movie-poster {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+/* Styling for the poster containers */
+.poster-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent items from wrapping to new lines */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  margin-bottom: 50px;
+}
+
+.poster {
+  margin: 10px;
+  max-width: 185px;
+  transition: transform 0.3s ease-in-out;
+  flex: 0 0 auto; /* Let the width be determined by the content */
 }
