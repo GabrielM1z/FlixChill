@@ -92,7 +92,7 @@ export class AppComponent {
   ngOnInit() {
         
     const requests = [
-      this.apiService.getBackgroundTheme(encodeURIComponent('tokyo')),
+      this.apiService.getBackgroundTheme(encodeURIComponent('Prague')),
       this.apiService.getWeather(),
       this.apiService.getGenre()
     ];
