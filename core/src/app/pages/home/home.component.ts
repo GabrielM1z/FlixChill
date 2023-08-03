@@ -97,9 +97,4 @@ export class HomeComponent implements OnInit {
 
 */
 
-toggleTheme() {
-  this.apiService.isBlackTheme = !this.apiService.isBlackTheme;
-}
-
-
 }

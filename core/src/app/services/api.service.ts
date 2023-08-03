@@ -9,7 +9,6 @@ import { map } from 'rxjs/operators';
 })
 export class ApiService {
 
-  isBlackTheme: boolean  = false;
   lstReturn : any;
 
   private baseUrl = 'http://127.0.0.1:8000'; // Replace with the correct backend URL
@@ -29,13 +28,15 @@ export class ApiService {
   }
 
   getRecommendedByGender(lstGenre : any): Observable<any> {
-    //console.log("ok",lstGenre)
     this.lstReturn = [];
     for(let i = 0; i< lstGenre.length; i++){
       //console.log("i=",i)
       encodeURIComponent(lstGenre[i])
       let a = this.http.get<any>(`${this.baseUrl}/recommendation/list/${encodeURIComponent(lstGenre[i])}`);
       this.lstReturn.push(a)
+      for(let j=0; j<this.lstReturn[i].length;j++){
+          console.log("", i, j,this.lstReturn[i][j])
+      }
     }
     //console.log("a",this.http.get<any>(`${this.baseUrl}/genre`))
     return forkJoin(this.lstReturn);
