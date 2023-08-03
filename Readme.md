@@ -19,17 +19,15 @@ FlixChill is an Angular-based web application that aims to provide a similar exp
 - Create a watchlist to save content for later viewing.
 - User authentication and account management.
 
-## Demo
 
-[Live Demo](https://www.example.com) <!-- Replace with your actual live demo link -->
 
 ## Technologies
 
 The following technologies are used in this project:
 
-- Angular
-- API (replace with the API you are using)
-- HTML, CSS, JavaScript (TypeScript)
+- Angular (HTML, CSS, JavaScript TypeScript)
+- Python
+- 
 
 ## Installation
 
