@@ -4,8 +4,8 @@ import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-movie-details',
-  templateUrl: './movie-details.component.html',
-  styleUrls: ['./movie-details.component.css']
+  templateUrl: './movies-details.component.html',
+  styleUrls: ['./movies-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
   movieDetails: any;

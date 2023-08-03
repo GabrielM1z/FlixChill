@@ -15,11 +15,7 @@ export class ApiService {
   private baseUrl = 'http://127.0.0.1:8000'; // Replace with the correct backend URL
 
   constructor(private http: HttpClient) { }
-  /*
-  getRecommendationByThematic(thematic: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/recommendation/thematic/${thematic}`);
-  }
-  */
+
   getBackgroundTheme(city: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/background/${city}`);
   }
@@ -44,21 +40,18 @@ export class ApiService {
     //console.log("a",this.http.get<any>(`${this.baseUrl}/genre`))
     return forkJoin(this.lstReturn);
   }
-  /*
-  getRecommendedByGender(): Observable<any> {
-    let lstGenre = this.http.get<any>(`${this.baseUrl}/genre`);
-    console.log("getRecommendedByGender", lstGenre)
-    this.lstReturn = [];
-    /*for(let i = 0; i< lstGenre.length; i++){
-      this.lstReturn.push(this.http.get<any>(`${this.baseUrl}/genre`))
-    }*=/
-    return this.lstReturn;
-  }*/
+
   getMovieDetails(title: string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/recommendation/weather/`).pipe(
       map((movies: any) => movies.find((movie: any) => movie.title === title))
     );
   }
   
-
+  getMoviesByThematic(thematic: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/recommendation/list/${encodeURIComponent(thematic)}`);
+  }
+  
+  getGenreWithId(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/private/genre`);
+  }
 }

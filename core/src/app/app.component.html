@@ -1,6 +1,18 @@
+<div *ngIf="bestMovie" id="best-movie" [style.background-image]="'url(' + basePath+bestMovie.poster_path + ')'">
+  <div class="poster">
+    <img [src]="basePath+bestMovie.poster_path" alt="Best Movie Poster">
+  </div>
+  <div class="movie-info">
+    <h2>{{bestMovie.title}}</h2>
+    <p>{{bestMovie.overview}}</p>
+    <p>Rating: {{bestMovie.vote_average}}/10</p>
+    <a href="{{bestMovie.trailer_link}}">Watch Trailer</a>
+  </div>
+</div>
+
+
 <div *ngIf="recommendation">
   <h1>Recommendation:</h1>
-  <h1 id="test"></h1>
   <p id="reponse">{{ recommendation.thematic }}</p>
   <p id="reponse">{{ backgroundTheme.thematic }}</p>
   <p>{{ recommendation.thematic }}</p>
@@ -13,28 +25,19 @@
   </div>
 </div>
 
-<div class="poster" *ngFor="let posterPath of lstWeather" (click)="openMovieDetails(posterPath.id)">
-  <img [src]="basePath + posterPath" alt="Weather Poster">
-</div>
-
-
-<!-- weather-posters.component.html -->
-<div *ngFor="let genre of lstGenre; let i = index">
-  <h2>{{ genre }}</h2>
+<div *ngFor="let genre of lstMovieGenre | keyvalue">
+  <h2>{{ genre.key }} Posters:</h2>
   <div class="poster-container">
-    <div class="poster" *ngIf="lstMovieGenre[i]" *ngFor="let posterPath of lstMovieGenre[i]">
-      <img [src]="basePath + posterPath.poster_path" alt="Weather Poster">
+    <div class="poster" *ngFor="let movie of genre.value">
+      <img [src]="basePath+movie.poster_path" alt="{{ genre.key }} Poster">
     </div>
   </div>
 </div>
 
-
-
-
-
+<div class="poster" *ngFor="let posterPath of lstWeather" (click)="openMovieDetails(posterPath.id)">
+  <img [src]="basePath + posterPath" alt="Weather Poster">
+</div>
 
 <app-search></app-search>
 
 <router-outlet></router-outlet>
-
-<!-- https://image.tmdb.org/t/p/w185 -->  
