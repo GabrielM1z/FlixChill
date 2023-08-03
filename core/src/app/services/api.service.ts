@@ -55,4 +55,10 @@ export class ApiService {
   getGenreWithId(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/private/genre`);
   }
+
+  searchMovies(query: string): Observable<any> {
+    let url = `${this.baseUrl}/search?query=${encodeURIComponent(query)}`;
+    return this.http.get<any>(url);
+  }
+  
 }

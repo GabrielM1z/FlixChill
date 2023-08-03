@@ -1,7 +1,16 @@
-
 <div [ngStyle]="{'background-color': isBlackTheme ? '#1B1B1B' : '#E3E3E3'}">
-  <nav class="navbar bg-body-tertiary"> <div class="container-fluid"> <form class="d-flex" role="search"> <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> <button class="btn btn-outline-success" type="submit">Search</button> </form> </div> </nav>
-  
+  <nav class="navbar bg-body-tertiary">
+
+    <div id="search-bar">
+      <input type="text" (keyup)="search($event)" placeholder="Search for a movie...">
+    </div>
+    
+<div *ngFor="let movie of searchResults">
+  <h2>{{ movie.title }}</h2>
+</div>
+    
+  </nav>
+
   <div *ngIf="bestMovie" id="best-movie" [ngStyle]="{'color': isBlackTheme ? '#EDEDED' : '#4B4A4A'}">
     <div class="movie-poster">
 
@@ -11,7 +20,7 @@
       <h2 [ngStyle]="{'color': isBlackTheme ? '#EDEDED' : '#4B4A4A'}">{{bestMovie.title}}</h2>
       <p>{{bestMovie.overview}}</p>
       <p>Rating: {{bestMovie.vote_average}}/10</p>
-      <a href="{{bestMovie.trailer_link}}"class="watch-trailer-btn">Watch Trailer</a>
+      <a href="{{bestMovie.trailer_link}}" class="watch-trailer-btn">Watch Trailer</a>
     </div>
   </div>
 

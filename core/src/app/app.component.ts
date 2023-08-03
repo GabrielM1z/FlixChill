@@ -78,6 +78,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  searchText: string = '';
+  searchResults: any[] = [];
   isBlackTheme: boolean  = false;
   bestMovie: any;
   recommendation: any;
@@ -86,9 +89,12 @@ export class AppComponent {
   lstGenre: any;
   lstMovieGenre: {[genre: string]: any[]} = {};
   basePath: string = "https://image.tmdb.org/t/p/w185";
-  title : string = 'FlixChill'
+  title : string = 'FlixChill';
+
+  
   constructor(private apiService: ApiService, private router: Router) {}
 
+  
   ngOnInit() {
         
     const requests = [
@@ -136,11 +142,31 @@ export class AppComponent {
         }
       );
     });
+
+    
+
   }
 
+  search(event: any) {
+    let query = event.target.value.toLowerCase();
+  
+    if (query !== '') {
+      this.searchResults = [];
+  
+      Object.values(this.lstMovieGenre).forEach((movies: any[]) => {
+        const results = movies.filter(movie => movie.title.toLowerCase().includes(query));
+        this.searchResults.push(...results);
+      });
+    } else {
+      this.searchResults = [];
+    }
+  }
+  
   
   
   openMovieDetails(movieId: string) {
     this.router.navigate(['/movie', movieId]);
   }
+
+  
 }
